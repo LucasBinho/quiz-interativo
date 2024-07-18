@@ -1,0 +1,345 @@
+@font-face {
+    font-family: "Mulish";
+    font-weight: normal;
+    src: url(/assets/fonts/Mulish-Regular.ttf);
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mulish";
+    font-weight: 500;
+    src: url(/assets/fonts/Mulish-Medium.ttf);
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mulish";
+    font-weight: 600;
+    src: url(/assets/fonts/Mulish-SemiBold.ttf);
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mulish";
+    font-weight: 700;
+    src: url(/assets/fonts/Mulish-Bold.ttf);
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mulish";
+    font-weight: 800;
+    src: url(/assets/fonts/Mulish-ExtraBold.ttf);
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mulish";
+    font-weight: 900;
+    src: url(/assets/fonts/Mulish-Black.ttf);
+    font-display: swap;
+  }
+  
+
+html, body {
+    margin: 0pt;
+}
+
+body{
+    width: 100%;
+}
+
+.display-none {
+    display: none!important;
+}
+
+.display-block {
+    display: block!important;
+}
+
+.w-2 {
+    width: 2rem;
+    margin-bottom: 5px;
+}
+
+
+
+.sp-footer{
+    color: #585858 !important;
+    background-color: #eee !important;
+    border-top: 1px solid #585858 !important;
+    border-bottom: 1px solid #585858 !important;
+    font-size: 12px !important;
+    color: #585858 !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sp-footer a{
+    color: #585858 !important;
+}
+
+.sp-footer ul{
+    list-style-type: none !important;
+}
+
+.sp-footer li{
+    font-size: 12px !important;
+}
+
+.sp-footer p{
+    font-size: 12px !important;
+}
+
+.gallery {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.upload-drop-zone {
+    height: 200px;
+    border-width: 2px;
+    margin-bottom: 20px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+    color: #ccc;
+    border-style: dashed;
+    border-color: #ccc;
+    line-height: 200px;
+    text-align: center
+}
+.upload-drop-zone.drop {
+    color: #222;
+    border-color: #222;
+}
+
+.program-title {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.error-border {
+    border: 1px solid #E4584C;
+    border-radius: 6px;
+}
+
+.terms {
+    margin: 15px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ececec;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+label[for=agree] {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+label[for=agree] > span:last-child {
+    bottom: 8px;
+}
+
+#stripe-form button[type=submit] {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.stripe-container {
+    background: #E6EBF1;
+    align-items: center;
+}
+
+.stripe-card {
+    height: 40px;
+    -webkit-appearance: none;
+    background: #fcfcfc;
+    padding: 0.46428571em;
+    border-radius: 6px;
+    border: 1px solid #ececec;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stripe-card:focus {
+    outline: none;
+}
+
+.stripe-card:active {
+    outline: none;
+}
+
+.stripe-card::-webkit-input-placeholder {
+    color: #b3b3b3;
+    font-size: 1.14285714em;
+}
+
+.stripe-card:-moz-placeholder {
+    /* Firefox 18- */
+    color: #b3b3b3;
+    font-size: 1.14285714em;
+}
+
+.stripe-card::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #b3b3b3;
+    font-size: 1.14285714em;
+}
+
+.stripe-card:-ms-input-placeholder {
+    color: #b3b3b3;
+    font-size: 1.14285714em;
+}
+
+.outcome {
+    float: left;
+    width: 100%;
+    padding-top: 8px;
+    min-height: 24px;
+    text-align: center;
+}
+
+.success, .error {
+    display: none;
+    font-size: 13px;
+}
+
+.success.visible, .error.visible {
+    display: inline;
+}
+
+.error {
+    color: #E4584C;
+}
+
+.success {
+    color: #666EE8;
+}
+
+.success .token {
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.programs__mobile_but {
+    display : none;
+}
+.programs__desktop_but {
+    display : block;
+}
+
+.mainStartDiv {
+    /* background-image: url(./../img/iara_bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; */
+
+    background-color: #222;
+    color: #ffff;
+}
+
+
+
+/* .mainStartDiv {
+    width: 600px;
+    height: 600px;
+    font-size:30px;
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 50%; 
+    position: relative;
+    z-index: 0;
+    transition: .3s;
+    cursor: pointer;
+  }
+  .mainStartDiv:before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    padding: 10px;
+    border-radius: 50%; 
+    background: conic-gradient(
+          #ff53bb ,
+          #0000 30deg 120deg,
+          #00f8d3 150deg 180deg,
+          #0000 210deg 300deg,
+          #ff53bb 330deg
+      );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: intersect
+  }
+  .mainStartDiv:after {
+    content: "";
+    position: absolute;
+    inset: -100px;
+    background:
+      radial-gradient(200px at left  400px top 150px,#ff53bb 100%,#0000),
+      radial-gradient(200px at right 400px bottom 150px,#00f8d3 100%,#0000);
+    filter: blur(120px);
+    opacity: .5;
+  }
+  
+  .mainStartDiv:before,
+  .mainStartDiv:after {
+    transition:.5s, 99999s 99999s transform;
+  }
+  .mainStartDiv:hover {
+    box-shadow: 0 0 0 1px #666;
+  }
+  
+  .mainStartDiv:hover:before,
+  .mainStartDiv:hover:after {
+    transform: rotate(36000deg);
+    transition: .5s,600s linear transform;
+  }
+  .mainStartDiv:before {
+    background-color: #222;
+      border: 2px solid #333;
+  }
+  
+  .mainBG {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    background-image: url(./../img/iara_bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-color: #111; 
+  }
+  
+  .mainStartDiv>div{
+      border-radius: 50%;
+      left: -2px;
+      position: relative;
+      top: 2px;
+      width: 594px;
+      opacity:0.9;
+  } */
+
+
+
+
+
+
+
+@media (max-width: 550px) {
+    .programs__mobile_but {
+        display : block;
+    }
+
+    .programs__desktop_but {
+        display : none;
+    }
+}

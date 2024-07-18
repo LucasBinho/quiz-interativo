@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- SE FOR MEXER EM LINK DE SAIDA, LEMBRAR DE FUNCAO FINALIZE AO FINAL -->
+
+<head>
+    <script>
+        var botao_link = "https://info.blivo.com.br/sfunnel/936/";
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="./assets/css/member.css" as="style">
+    <link rel="preload" as="style" href="./assets/css/all.css">
+    <link rel="preload" as="style" href="./assets/css/fbk-cpc-v1.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/all.css">
+    <link rel="stylesheet" href="./assets/css/fbk-cpc-v1.css">
+
+    <title>Qual a sua carta do Folclore?</title>
+
+    <style>
+
+        /* #survey {
+            background: url(./assets/img/bianca_estudio.png);
+            background-position: bottom -30px center;
+            background-size: cover;
+            height: 1000px;
+            padding: 30px 20px 0 20px;
+            background-repeat: no-repeat;
+        } */
+
+        #survey {
+            height: 100%;
+        }
+
+        button:hover {
+            background-color: #4e4b85 !important;
+            border-color: #4e4b85 !important;
+        }
+
+        .logo {
+            width: 98px;
+        }
+
+        .mainStartDiv {
+
+            height: 100%;
+        }
+
+        .quizStart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* background-color: #fff1ea; */
+            /* border-radius: 40px 40px 0 0; */
+            /* height: 100%; */
+            padding: 70px 15px 0 15px;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+            -moz-transition: opacity 1s ease-in-out;
+            -webkit-transition: opacity 1s ease-in-out;
+        }
+
+        .quizStart h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+        }
+
+        .quizStart h3 {
+            font-size: 24px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .quizStart p {
+            max-width: 42rem;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn-start {
+            font-size: 21px;
+            letter-spacing: 2.52px;
+            max-width: 340px;
+            height: 72px;
+            background: #A5A3C1;
+            color: #fff;
+            box-shadow: 0 3px 6px #0000001a;
+            border-radius: 999px;
+            padding: 0 1rem;
+            width: 100%;
+            font-weight: 700;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .btn-start:hover {
+            background-color: #4e4b85 !important;
+            box-shadow: 2px 2px 10px 2px #aaa;
+        }
+
+        .jump_step,
+        .jump_step:hover {
+            font-weight: 400!important;
+            color: #000 !important;
+        }
+
+        .questionButtons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+                text-wrap: wrap!important;
+            }
+
+        #survey .btn {
+            font-size: 17px;
+            line-height: 1;
+            padding: 0 2px;
+        }
+
+
+        @media (max-width:768px) {
+            #survey {
+                /* background: url(./assets/img/bianca_estudio-mobile.png); 
+                background-position: bottom -135px right 0;
+                background-size: cover;
+                background-repeat: no-repeat;*/
+            }
+
+            #survey .btn {
+                min-width: auto;
+                margin-bottom: 15px;
+                max-width: 160px;
+            }
+
+            .mw-mobile-0 {
+                max-width: none!important;
+            }
+
+            .questionButtons {
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .quizStart h1 {
+                font-size: 34px;
+            }
+
+            .quizStart h3 {
+                font-size: 22px;
+            }
+
+  
+        }
+
+        @media(max-width: 340px) {
+            .btn-start {
+                max-width: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./assets/css/member.css">
+</head>
+
+<body class="" cz-shortcut-listen="true">
+
+
+    <!-- <div id="header">
+        <div class="survey-back backButton">
+            <i class="fas fa-chevron-left backButton"></i>
+        </div> 
+        <img class="logo" alt="Logo" src="./assets/img/folc_logo.jpg" loading="lazy" decoding="async">
+    </div> -->
+
+    <!--<div class="mainBG"> -->
+        <div class="mainStartDiv">
+            <div class="quizStart">
+                <div class="">
+                    <h1>Lorem Ipsum</h1>
+                    <h3>Faça este teste gratuito para descobrir a sua carta de folclore!</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem enim sunt, temporibus, neque, voluptates ratione magnam laborum atque molestias cumque nihil quas nulla facilis repellat! Nisi iure sunt vero obcaecati?</p>
+                    <button id="btn-start" class="btn-start">
+                        INICIAR QUIZ
+                        <img class="w-2" src="./assets/img/arrow2.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+   <!-- </div> -->
+
+
+    <div class="display-none" id="survey">
+        <div class="survey-progress">
+            <div class="survey-progress-fill" style="width: calc(25% - 8px);">
+            </div>
+        </div>
+        <div class="question" data-index="1" style="display: block;">
+            <h3>Qual a sua idade?</h3>
+            <div class="questionButtons">
+                <button class="btn btn-primary" ontouchstart="">Abaixo de 30</button>
+                <button class="btn btn-primary" ontouchstart="">30-39</button>
+                <button class="btn btn-primary" ontouchstart="">40-49</button>
+                <button class="btn btn-primary" ontouchstart="">50-59</button>
+                <button class="btn btn-primary" ontouchstart="">60-69</button>
+                <button class="btn btn-primary" ontouchstart="">Acima de 70</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="question" data-index="2">
+            <h3>Quantas vezes por dia você come?</h3>
+            <div class="questionButtons">
+                <button class="btn btn-primary" ontouchstart="">1X</button>
+                <button class="btn btn-primary" ontouchstart="">2X</button>
+                <button class="btn btn-primary" ontouchstart="">3X</button>
+                <button class="btn btn-primary" ontouchstart="">4X</button>
+                <button class="btn btn-primary" ontouchstart="">5X</button>
+                <button class="btn btn-primary" ontouchstart="">6x ou mais</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="question" data-index="3">
+            <h3>Com que frequência você evacua?</h3>
+            <div class="questionButtons">
+                <button class="btn btn-primary" ontouchstart="">Uma vez ao dia</button>
+                <button class="btn btn-primary" ontouchstart="">Várias vezes ao dia</button>
+                <button class="btn btn-primary" ontouchstart="">Um dia sim, outro não</button>
+                <button class="btn btn-primary" ontouchstart="">Mais de dois dias de intervalo</button>
+                <button class="btn btn-primary" ontouchstart="">Não tenho certeza</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="question" data-index="4">
+            <h3>Como é preparada a sua principal refeição do dia?</h3>
+            <div class="questionButtons">
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Comida fresca feita em casa</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Comida de restaurante</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Refeições prontas / congeladas</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="question" data-index="5">
+            <h3>Você costuma evitar alimentos que causam problemas digestivos?</h3>
+            <div class="questionButtons">
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Sim</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Às vezes</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Não</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="question" data-index="6">
+            <h3>Qual o maior problema de saúde que você enfrenta atualmente?</h3>
+            <div class="questionButtons">
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Problemas disgestivos como constipação, inchaço ou gases</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Ganho de peso</button>
+                <button data-quiz="1" class="btn btn-primary mw-mobile-0" ontouchstart="">Falta de energia</button>
+            </div>
+            <div class="jump_step-div mt-3"><a class="clickarea jump_step" href="">Pular essa etapa</a></div>
+        </div>
+        <div class="calculating">
+            <h1 style="padding-top: 100px; margin-bottom: 40px;">Carregando…</h1>
+            <div class="calculation-progress">
+                <div class="calculation-fill">
+                </div>
+            </div>
+        </div>
+        <div class="finalize">
+        </div>
+    </div>
+    <div class="sn-footer-spacer" style="height: 64px; width: 100%;"></div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+
+
+            var aLink = document.querySelectorAll('a');
+            aLink.forEach(function(element, index) {
+                if (element.classList.contains("clickarea")) {
+                    var queryParams = "";
+                    if (element.dataset.clickarea != undefined) {
+                        queryParams += "?click_area=" + element.dataset.clickarea.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z\s]/g, "").replace(/ /g, "").toLowerCase() + index;
+                    } else {
+                        queryParams += "?click_area=" + element.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z\s]/g, "").replace(/ /g, "").toLowerCase() + index;
+                    }
+
+                    if (element.dataset.hl != undefined) {
+                        queryParams += "&hl=" + element.dataset.hl;
+                    }
+
+                    if (typeof pagina !== "undefined") {
+                        queryParams += pagina;
+                    }
+
+                    // Verifica se o parâmetro 'adv12' existe
+                    if (window.location.search.includes('adv12=1')) {
+                        queryParams += "&adv12=1";
+                    }
+
+                    element.href = botao_link + queryParams;
+                }
+            });
+
+
+
+            const survey = document.getElementById('survey');
+            const btnStart = document.getElementById('btn-start');
+            const quizStartdiv = document.querySelector('.quizStart');
+            const mainStartdiv = document.querySelector('.mainStartDiv');
+            // survey.classList.add('display-none');
+
+            btnStart.addEventListener('click', function() {
+
+                quizStartdiv.style.opacity = '0';
+                setTimeout(function() {
+                    quizStartdiv.classList.add('display-none');
+                    survey.classList.remove('display-none');
+                    mainStartdiv.classList.add('display-none');
+                }, 1200);
+
+            })
+        });
+
+
+        (function(scope) {
+            let questions = document.querySelectorAll('.question');
+            let buttons = document.querySelectorAll('.btn');
+            let progressContainer = document.querySelector('.survey-progress');
+            let progress = document.querySelector('.survey-progress-fill');
+            let calculateContainer = document.querySelector('.calculating');
+            let calculation = document.querySelector('.calculation-fill');
+            let final = document.querySelector('.finalize');
+            // let backButton = document.querySelector('.survey-back');
+            let index = 0;
+            questions[index].style.display = "block";
+            document.body.addEventListener('click', event => {
+                if (Array.from(buttons).indexOf(event.target) > -1) {
+                    // if (index === 0) {
+                    //     backButton.style.display = "block";
+                    // }
+                    nextStep();
+                } else {
+                    if (Array.from(event.target.classList).indexOf('backButton') > -1) {
+                        nextStep(true);
+                    }
+                }
+            })
+            updateProgress();
+
+            function nextStep(back) {
+                if (back) {
+                    index = index - 1;
+                } else {
+                    index++;
+                }
+                questions.forEach(question => {
+                    question.style.display = "none";
+                });
+                calculateContainer.style.display = "none";
+                progressContainer.style.display = "none";
+                final.style.display = "none";
+                calculation.style.width = '0%';
+                if (index >= 0 && index < questions.length) {
+                    progressContainer.style.display = "block";
+                }
+                // if (index === 0) {
+                //     backButton.style.display = "none";
+                // }
+                if (index === questions.length) {
+                    calculateContainer.style.display = "block";
+                    progressContainer.style.display = "none";
+                    setTimeout(() => {
+                        calculate();
+                    }, 300);
+                    return;
+                } else if (index < questions.length) {
+                    questions[index].style.display = "block";
+                    updateProgress();
+                }
+
+            }
+
+            function updateProgress() {
+
+                // if(index === questions.length - 1) {
+                    // progress.style.width = '90%'
+                // } else {
+                    progress.style.width = 'calc(' + (((index + 1) / questions.length) * 100) + '% - 8px)';
+                // }
+            }
+
+            function calculate() {
+                calculation.style.width = 'calc(100% - 8px)';
+                setTimeout(() => {
+                    calculateContainer.style.display = "none";
+                    finalize();
+                }, 3700)
+            }
+
+            function finalize() {
+                window.location.href = "https://info.blivo.com.br/sfunnel/936/";
+            }
+        })(window);
+    </script>

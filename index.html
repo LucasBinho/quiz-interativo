@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <!-- SE FOR MEXER EM LINK DE SAIDA, LEMBRAR DE FUNCAO FINALIZE AO FINAL -->
+
+  <head>
+    <script>
+      var botao_link = "https://www.google.com.br/";
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preload" href="./assets/css/member.css" as="style" />
+    <link rel="preload" as="style" href="./assets/css/all.css" />
+    <link rel="preload" as="style" href="./assets/css/fbk-cpc-v1.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/css/all.css" />
+    <link rel="stylesheet" href="./assets/css/fbk-cpc-v1.css" />
+
+    <title>Qual a sua carta do Folclore?</title>
+
+    <style>
+      /* #survey {
+            background: url(./assets/img/bianca_estudio.png);
+            background-position: bottom -30px center;
+            background-size: cover;
+            height: 1000px;
+            padding: 30px 20px 0 20px;
+            background-repeat: no-repeat;
+        } */
+
+      #survey {
+        height: 100%;
+        width: 100%;
+        background-color: #222;
+        color: #ffff;
+      }
+
+      /* button:hover {
+        background-color: #4e4b85 !important;
+        border-color: #4e4b85 !important;
+      } */
+
+      .logo {
+        width: 98px;
+      }
+
+      .mainStartDiv {
+        height: 100%;
+      }
+
+      .quizStart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        /* background-color: #fff1ea; */
+        /* border-radius: 40px 40px 0 0; */
+        /* height: 100%; */
+        /* padding: 70px 15px 0 15px; */
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
+      }
+
+      .quizStart h1 {
+        font-size: 44px;
+        margin-bottom: 20px;
+      }
+
+      .quizStart h3 {
+        font-size: 24px;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .quizStart p {
+        max-width: 42rem;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .btn-start {
+        font-size: 21px;
+        letter-spacing: 2.52px;
+        max-width: 340px;
+        height: 72px;
+        background: #a5a3c1;
+        color: #fff;
+        box-shadow: 0 3px 6px #0000001a;
+        border-radius: 999px;
+        padding: 0 1rem;
+        width: 100%;
+        font-weight: 700;
+        border: none;
+        margin-top: 20px;
+      }
+
+      .btn-start:hover {
+        background-color: #4e4b85 !important;
+        box-shadow: 2px 2px 10px 2px #aaa;
+      }
+
+      .jump_step,
+      .jump_step:hover {
+        font-weight: 400 !important;
+        color: #000 !important;
+      }
+
+      body {
+        /* background-color: rgb(20, 20, 20); */
+        /* display: grid;
+        height: 100vh; */
+        margin: 0px;
+        padding: 0px;
+      }
+
+      :root {
+        --card-color: rgb(25, 25, 25);
+      }
+
+      .questionButtons {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+        padding: 1em 0em;
+        place-self: center;
+        position: relative;
+        width: calc(60% - 2em);
+        z-index: 2;
+      }
+
+      .card {
+        background-color: var(--card-color);
+        border-radius: 0.75em;
+        cursor: pointer;
+        height: 180px;
+        position: relative;
+      }
+
+      .card:hover:before {
+        opacity: 1;
+      }
+
+      .card:before {
+        background: linear-gradient(
+          45deg,
+          transparent 5%,
+          rgb(255, 215, 137) 50%,
+          transparent 99%
+        );
+        border-radius: inherit;
+        content: "";
+        inset: 0px;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 400ms;
+        z-index: 0;
+      }
+
+      .card-content {
+        background-color: var(--card-color);
+        border-radius: inherit;
+        border: transparent;
+        display: grid;
+        align-items: center;
+        inset: 3px;
+        padding: 1em;
+        position: absolute;
+        color: #fff;
+      }
+
+      .card:hover > .card-content > .card-icon {
+        opacity: 1;
+        transform: scale(1.1) translateY(-5%);
+      }
+
+      /* .questionButtons {
+            display: flex;
+            flex-wrap: wrap;
+        } */
+
+      .btn {
+        text-wrap: wrap !important;
+      }
+
+      #survey .btn {
+        font-size: 17px;
+        line-height: 1;
+        padding: 0 2px;
+      }
+
+      @media (max-width: 768px) {
+        /*  #survey {
+          background: url(./assets/img/bianca_estudio-mobile.png); 
+                background-position: bottom -135px right 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+        }*/
+
+        #survey .btn {
+          min-width: auto;
+          margin-bottom: 15px;
+          max-width: 160px;
+        }
+
+        .mw-mobile-0 {
+          max-width: none !important;
+        }
+
+        .questionButtons {
+          gap: 10px;
+          justify-content: center;
+          width: calc(90% - 2em);
+        }
+
+        .quizStart h1 {
+          font-size: 34px;
+        }
+
+        .quizStart h3 {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 340px) {
+        .btn-start {
+          max-width: 300px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./assets/css/member.css" />
+  </head>
+
+  <body class="" cz-shortcut-listen="true">
+    <!-- <div id="header">
+        <div class="survey-back backButton">
+            <i class="fas fa-chevron-left backButton"></i>
+        </div> 
+        <img class="logo" alt="Logo" src="./assets/img/folc_logo.jpg" loading="lazy" decoding="async">
+    </div> -->
+
+    <!--<div class="mainBG"> -->
+    <div class="mainStartDiv">
+      <div class="quizStart">
+        <div class="">
+          <h1>Lorem Ipsum</h1>
+          <h3>
+            Faça este teste gratuito para descobrir a sua carta de folclore!
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem enim sunt, temporibus, neque, voluptates ratione
+            magnam laborum atque molestias cumque nihil quas nulla facilis
+            repellat! Nisi iure sunt vero obcaecati?
+          </p>
+          <button id="btn-start" class="btn-start">INICIAR QUIZ</button>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div class="display-none" id="survey">
+      <div class="survey-progress">
+        <div class="survey-progress-fill" style="width: calc(25% - 8px)"></div>
+      </div>
+      <div class="question" data-index="1" style="display: grid">
+        <h3>
+          Em uma trilha na floresta, você encontra um objeto mágico. O que você
+          faz?
+        </h3>
+        <div class="questionButtons">
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Examina o objeto cuidadosamente, tentando entender sua origem e função"
+            >
+              Examina o objeto cuidadosamente, tentando entender sua origem e
+              função
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Leva o objeto consigo, esperando usar seu poder para ajudar os outros"
+            >
+              Leva o objeto consigo, esperando usar seu poder para ajudar os
+              outros
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Usa o objeto imediatamente, curioso para ver o efeito"
+            >
+              Usa o objeto imediatamente, curioso para ver o efeito
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="question" data-index="2">
+        <h3>
+          Você se depara com um desafio que parece impossível. Como você reage?
+        </h3>
+        <div class="questionButtons">
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Confronta o desafio de cabeça erguida, confiante em sua habilidade de superá-lo"
+            >
+              Confronta o desafio de cabeça erguida, confiante em sua habilidade
+              de superá-lo
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Planeja cuidadosamente uma estratégia para superar o desafio"
+            >
+              Planeja cuidadosamente uma estratégia para superar o desafio
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Tenta uma abordagem não convencional, inesperada"
+            >
+              Tenta uma abordagem não convencional, inesperada
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="question" data-index="3">
+        <h3>Se você pudesse escolher um poder místico, qual seria?</h3>
+        <div class="questionButtons">
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="O dom de se teleportar para qualquer lugar instantaneamente"
+            >
+              O dom de se teleportar para qualquer lugar instantaneamente
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="Controlar os elementos da natureza ao seu redor"
+            >
+              Controlar os elementos da natureza ao seu redor
+            </button>
+          </div>
+          <div class="card">
+            <button
+              class="card-content"
+              data-value="O poder de curar qualquer mal ou ferimento"
+            >
+              O poder de curar qualquer mal ou ferimento
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="calculating">
+        <h1 style="padding-top: 100px; margin-bottom: 40px">Carregando…</h1>
+        <div class="calculation-progress">
+          <div class="calculation-fill"></div>
+        </div>
+      </div>
+      <div class="finalize"></div>
+    </div>
+    <div class="sn-footer-spacer" style="height: 64px; width: 100%"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script type="module" src="./script.js"></script> -->
+    <!-- <script type="text/javascript"> -->
+    <script type="module">
+
+import { getText } from './app.js';
+
+document.addEventListener("DOMContentLoaded", function () {
+    const survey = document.getElementById("survey");
+    const btnStart = document.getElementById("btn-start");
+    const quizStartdiv = document.querySelector(".quizStart");
+    const mainStartdiv = document.querySelector(".mainStartDiv");
+
+    btnStart.addEventListener("click", function () {
+        quizStartdiv.style.opacity = "0";
+        setTimeout(function () {
+            quizStartdiv.classList.add("display-none");
+            survey.classList.remove("display-none");
+            mainStartdiv.classList.add("display-none");
+        }, 1200);
+    });
+});
+
+(function (scope) {
+    let questions = document.querySelectorAll(".question");
+    let buttons = document.querySelectorAll(".card-content");
+    let progressContainer = document.querySelector(".survey-progress");
+    let progress = document.querySelector(".survey-progress-fill");
+    let calculateContainer = document.querySelector(".calculating");
+    let calculation = document.querySelector(".calculation-fill");
+    let final = document.querySelector(".finalize");
+    let index = 0;
+    let selectedValues = [];
+    questions[index].style.display = "grid";
+
+    document.body.addEventListener("click", (event) => {
+        if (Array.from(buttons).indexOf(event.target) > -1) {
+            let value = event.target.getAttribute("data-value");
+            selectedValues.push(value);
+            nextStep();
+        } else {
+            if (Array.from(event.target.classList).indexOf("backButton") > -1) {
+                nextStep(true);
+            }
+        }
+    });
+
+    function nextStep(back) {
+        if (back) {
+            index = index - 1;
+            selectedValues.pop();
+        } else {
+            index++;
+        }
+        questions.forEach((question) => {
+            question.style.display = "none";
+        });
+        calculateContainer.style.display = "none";
+        progressContainer.style.display = "none";
+        final.style.display = "none";
+        calculation.style.width = "0%";
+        if (index >= 0 && index < questions.length) {
+            progressContainer.style.display = "block";
+        }
+        if (index === questions.length) {
+            calculateContainer.style.display = "block";
+            progressContainer.style.display = "none";
+            setTimeout(() => {
+                calculate();
+            }, 300);
+            return;
+        } else if (index < questions.length) {
+            questions[index].style.display = "grid";
+            updateProgress();
+        }
+    }
+
+    function updateProgress() {
+        progress.style.width = "calc(" + ((index + 1) / questions.length) * 100 + "% - 8px)";
+    }
+
+    async function calculate() {
+    calculation.style.width = "75%"; // Inicia preenchendo até 75%
+
+    const response = await getText(selectedValues);
+    localStorage.setItem('openaiResponse', response);
+    localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
+
+    const checkResponse = () => {
+        if (response && response.trim() !== '') {
+            calculation.style.width = "100%"; // Completa até 100%
+            setTimeout(() => {
+                finalize();
+            }, 3000); // Espera um segundo antes de chamar finalize()
+        } else {
+            console.warn('Empty or undefined response from getText().');
+        }
+    };
+
+    setTimeout(() => {
+        console.log('checando resposta')
+        checkResponse();
+    }, 200); // Espera 3.7 segundos antes de verificar a resposta
+}
+    // async function calculate() {
+    //     calculation.style.width = "calc(100% - 8px)";
+    //     const response = await getText(selectedValues);
+    //     localStorage.setItem('openaiResponse', response);
+    //     localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
+    //     setTimeout(() => {
+    //         finalize();
+    //     }, 3700);
+    // }
+
+    function finalize() {
+        window.location.href = "./pages/result.html";
+    }
+})(window);
+
+    </script>
+  </body>
+</html>
