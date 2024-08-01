@@ -232,11 +232,8 @@ label[for=agree] > span:last-child {
 }
 
 .mainStartDiv {
-    /* background-image: url(./../img/iara_bg.jpg);
-    background-position: center;
-    background-size: cover;
+    background-image: url(./../img/brifw_bg.png);
     background-repeat: no-repeat;
-    position: relative; */
 
     background-color: #222;
     color: #ffff;
