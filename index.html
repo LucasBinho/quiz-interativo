@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <!-- SE FOR MEXER EM LINK DE SAIDA, LEMBRAR DE FUNCAO FINALIZE AO FINAL -->
-
   <head>
-    <script>
-      var botao_link = "https://www.google.com.br/";
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="preload" href="./assets/css/member.css" as="style" />
-    <link rel="preload" as="style" href="./assets/css/all.css" />
-    <link rel="preload" as="style" href="./assets/css/fbk-cpc-v1.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -25,8 +16,9 @@
       href="./assets/img/favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./assets/css/all.css" />
-    <link rel="stylesheet" href="./assets/css/fbk-cpc-v1.css" />
+    <link rel="stylesheet" href="./assets/css/member.css?v=0" />
+    <link rel="stylesheet" href="./assets/css/all.css?v=0" />
+    <link rel="stylesheet" href="./assets/css/fbk-cpc-v1.css?v=0" />
 
     <title>Qual a sua carta do Folclore?</title>
 
@@ -43,14 +35,18 @@
       #survey {
         height: 100%;
         width: 100%;
-        background-color: #222;
+        background-color: #000000;
+        background-image: url(./assets/img/question_bg2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
         color: #ffff;
       }
 
-      /* button:hover {
-        background-color: #4e4b85 !important;
-        border-color: #4e4b85 !important;
-      } */
+      .question {
+        font-family: "Neue-regular";
+        /* height: 100%; */
+        align-items: center;
+      }
 
       .logo {
         width: 98px;
@@ -95,23 +91,38 @@
       }
 
       .btn-start {
+        font-family: "Neue-regular";
         font-size: 21px;
         letter-spacing: 2.52px;
         /* max-width: 340px; */
         height: 72px;
-        background: #a5a3c1;
+        background: #000000;
         color: #fff;
         box-shadow: 0 3px 6px #0000001a;
         border-radius: 999px;
         padding: 0 1rem;
         width: 100%;
         font-weight: 700;
-        border: none;
+        border: 2px solid white;
         margin-top: 20px;
+        text-transform: uppercase;
+
+        position: relative;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          top: 0px; /* Posição inicial e final */
+        }
+        50% {
+          top: -20px; /* Posição elevada no meio da animação */
+        }
       }
 
       .btn-start:hover {
-        background-color: #4e4b85 !important;
+        background-color: #000000 !important;
         box-shadow: 2px 2px 10px 2px #aaa;
       }
 
@@ -137,11 +148,11 @@
         display: grid;
         gap: 1em;
         grid-template-columns: repeat(2, 1fr);
-        max-width: 1000px;
-        padding: 4em 0em;
+        /* max-width: 1000px; */
+        padding: 2em 0em;
         place-self: center;
         position: relative;
-        width: calc(60% - 2em);
+        width: 85%;
         z-index: 2;
       }
 
@@ -174,13 +185,13 @@
       }
 
       .card-content {
-        background-color: var(--card-color);
+        background-color: #000000;
         border-radius: inherit;
-        border: transparent;
+        border: 3px solid white;
         display: grid;
         align-items: center;
         inset: 3px;
-        padding: 1em;
+        /* padding: 1em; */
         position: absolute;
         color: #fff;
         font-size: 25px;
@@ -259,15 +270,25 @@
     <!--<div class="mainBG"> -->
     <div class="mainStartDiv">
       <div class="quizStart">
-        <div class="">
-          <button id="btn-start" class="btn-start">Aperte Qualquer Botão Para Começar</button>
+        <div
+          class=""
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            flex: auto;
+            align-content: flex-end;
+            padding-bottom: 5rem;
+          "
+        >
+          <button id="btn-start" class="btn-start">
+            Aperte Qualquer Botão Para Começar
+          </button>
         </div>
       </div>
     </div>
     <!-- </div> -->
 
     <div class="display-none" id="survey">
-
       <div class="question" data-index="1" style="display: grid">
         <h3>
           Em uma trilha na floresta, você encontra um objeto mágico. O que você
@@ -297,7 +318,8 @@
               class="card-content"
               data-value="Esconde o objeto para que ninguém mais o encontre e abuse de seu poder"
             >
-              Esconde o objeto para que ninguém mais o encontre e abuse de seu poder
+              Esconde o objeto para que ninguém mais o encontre e abuse de seu
+              poder
             </button>
           </div>
           <div class="card">
@@ -386,13 +408,19 @@
             </button>
           </div>
         </div>
- 
       </div>
       <div class="survey-progress">
         <div class="survey-progress-fill" style="width: calc(25% - 8px)"></div>
       </div>
       <div class="calculating">
-        <h1 style="padding-top: 100px; margin-bottom: 40px">Carregando…</h1>
+        <div class="cards">
+          <img class="img-fluid" src="./assets/img/card_boi.png" alt="" />
+          <img class="img-fluid" src="./assets/img/card_saci.png" alt="" />
+          <img class="img-fluid" src="./assets/img/card_mula.png" alt="" />
+          <img class="img-fluid" src="./assets/img/card_cuca.png" alt="" />
+          <img class="img-fluid" src="./assets/img/card_iara.png" alt="" />
+        </div>
+        <h1>Seu Destino Está Sendo Descoberto...</h1>
         <div class="calculation-progress">
           <div class="calculation-fill"></div>
         </div>
@@ -407,141 +435,155 @@
     <!-- <script type="module" src="./script.js"></script> -->
     <!-- <script type="text/javascript"> -->
     <script type="module">
+      import { getText } from "./app.js";
 
-import { getText } from './app.js';
+      document.addEventListener("DOMContentLoaded", function () {
+        const survey = document.getElementById("survey");
+        const btnStart = document.getElementById("btn-start");
+        const quizStartdiv = document.querySelector(".quizStart");
+        const mainStartdiv = document.querySelector(".mainStartDiv");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const survey = document.getElementById("survey");
-    const btnStart = document.getElementById("btn-start");
-    const quizStartdiv = document.querySelector(".quizStart");
-    const mainStartdiv = document.querySelector(".mainStartDiv");
-
-    function startQuiz() {
-        quizStartdiv.style.opacity = "0";
-        setTimeout(function () {
+        function startQuiz() {
+          quizStartdiv.style.opacity = "0";
+          setTimeout(function () {
             quizStartdiv.classList.add("display-none");
             survey.classList.remove("display-none");
             mainStartdiv.classList.add("display-none");
-        }, 1200);
-    }
-
-    btnStart.addEventListener("click", startQuiz);
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key >= '1' && event.key <= '4') {
-            startQuiz();
+          }, 1200);
         }
-    });
-});
 
-(function (scope) {
-    let questions = document.querySelectorAll(".question");
-    let buttons = document.querySelectorAll(".card-content");
-    let progressContainer = document.querySelector(".survey-progress");
-    let progress = document.querySelector(".survey-progress-fill");
-    let calculateContainer = document.querySelector(".calculating");
-    let calculation = document.querySelector(".calculation-fill");
-    let final = document.querySelector(".finalize");
-    let index = 0;
-    let selectedValues = [];
-    questions[index].style.display = "grid";
+        btnStart.addEventListener("click", startQuiz);
 
-    document.body.addEventListener("click", (event) => {
-        if (Array.from(buttons).indexOf(event.target) > -1) {
+        document.addEventListener("keydown", function (event) {
+          if (event.key >= "1" && event.key <= "4") {
+            console.log("cliquei");
+            startQuiz();
+          }
+        });
+      });
+
+      (function (scope) {
+        let questions = document.querySelectorAll(".question");
+        let buttons = document.querySelectorAll(".card-content");
+        let progressContainer = document.querySelector(".survey-progress");
+        let progress = document.querySelector(".survey-progress-fill");
+        let calculateContainer = document.querySelector(".calculating");
+        let calculation = document.querySelector(".calculation-fill");
+        let final = document.querySelector(".finalize");
+        let index = 0;
+        let selectedValues = [];
+        questions[index].style.display = "grid";
+
+        document.body.addEventListener("click", (event) => {
+          if (Array.from(buttons).indexOf(event.target) > -1) {
             let value = event.target.getAttribute("data-value");
             selectedValues.push(value);
             nextStep();
-        } else {
+          } else {
             if (Array.from(event.target.classList).indexOf("backButton") > -1) {
-                nextStep(true);
+              nextStep(true);
             }
-        }
-    });
+          }
+        });
 
-    document.body.addEventListener("keydown", (event) => {
-        if (event.key >= '1' && event.key <= '4') {
-            const buttonIndex = parseInt(event.key) - 1;
-            const currentButtons = questions[index].querySelectorAll(".card-content");
-            if (currentButtons[buttonIndex]) {
+        document.body.addEventListener("keydown", (event) => {
+          const mainStartdiv = document.querySelector(".mainStartDiv");
+
+          if (mainStartdiv.classList.contains("display-none")) {
+            if (event.key >= "1" && event.key <= "4") {
+              const buttonIndex = parseInt(event.key) - 1;
+              const currentButtons =
+                questions[index].querySelectorAll(".card-content");
+              if (currentButtons[buttonIndex]) {
                 currentButtons[buttonIndex].click();
+              }
             }
-        }
-    });
+          }
+        });
 
-    function nextStep(back) {
-        if (back) {
+        function updateBackgroundOnCalculating() {
+          const survey = document.getElementById("survey");
+          const calculating = document.querySelector(".calculating");
+
+          // Verifica se a div 'calculating' está visível
+          if (calculating.style.display === "block") {
+            // Muda o background da div 'survey'
+            survey.style.backgroundImage = "url(./assets/img/question_bg.png)"; // Altere para a imagem desejada
+          } else {
+            // Restaura o background original da div 'survey'
+            survey.style.backgroundImage = "url(./assets/img/question_bg2.png)"; // Imagem original
+          }
+        }
+
+        function nextStep(back) {
+          if (back) {
             index = index - 1;
             selectedValues.pop();
-        } else {
+          } else {
             index++;
-        }
-        questions.forEach((question) => {
+          }
+          questions.forEach((question) => {
             question.style.display = "none";
-        });
-        calculateContainer.style.display = "none";
-        progressContainer.style.display = "none";
-        final.style.display = "none";
-        calculation.style.width = "0%";
-        if (index >= 0 && index < questions.length) {
+          });
+          calculateContainer.style.display = "none";
+          progressContainer.style.display = "none";
+          final.style.display = "none";
+          calculation.style.width = "0%";
+          if (index >= 0 && index < questions.length) {
             progressContainer.style.display = "block";
-        }
-        if (index === questions.length) {
+          }
+          if (index === questions.length) {
             calculateContainer.style.display = "block";
             progressContainer.style.display = "none";
+            updateBackgroundOnCalculating();
             setTimeout(() => {
-                calculate();
+              calculate();
             }, 300);
             return;
-        } else if (index < questions.length) {
+          } else if (index < questions.length) {
             questions[index].style.display = "grid";
             updateProgress();
+          }
         }
-    }
 
-    function updateProgress() {
-        progress.style.width = "calc(" + ((index + 1) / questions.length) * 100 + "% - 8px)";
-    }
+        function updateProgress() {
+          progress.style.width =
+            "calc(" + ((index + 1) / questions.length) * 100 + "% - 8px)";
+        }
 
-    async function calculate() {
-    calculation.style.width = "75%"; // Inicia preenchendo até 75%
+        async function calculate() {
+          calculation.style.width = "75%"; // Inicia preenchendo até 75%
 
-    const response = await getText(selectedValues);
-    localStorage.setItem('openaiResponse', response);
-    localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
+          const response = await getText(selectedValues);
+          localStorage.setItem("openaiResponse", response);
+          localStorage.setItem(
+            "selectedValues",
+            JSON.stringify(selectedValues)
+          );
 
-    console.log('selected vlaues:', selectedValues)
+          console.log("selected vlaues:", selectedValues);
 
-    const checkResponse = () => {
-        if (response && response.trim() !== '') {
-            calculation.style.width = "100%"; // Completa até 100%
-            setTimeout(() => {
+          const checkResponse = () => {
+            if (response && response.trim() !== "") {
+              calculation.style.width = "100%";
+              setTimeout(() => {
                 finalize();
-            }, 3000); // Espera um segundo antes de chamar finalize()
-        } else {
-            console.warn('Empty or undefined response from getText().');
+              }, 3000);
+            } else {
+              console.warn("Empty or undefined response from getText().");
+            }
+          };
+
+          setTimeout(() => {
+            console.log("checando resposta");
+            checkResponse();
+          }, 200); // Espera 3.7 segundos antes de verificar a resposta
         }
-    };
 
-    setTimeout(() => {
-        console.log('checando resposta')
-        checkResponse();
-    }, 200); // Espera 3.7 segundos antes de verificar a resposta
-}
-    // async function calculate() {
-    //     calculation.style.width = "calc(100% - 8px)";
-    //     const response = await getText(selectedValues);
-    //     localStorage.setItem('openaiResponse', response);
-    //     localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
-    //     setTimeout(() => {
-    //         finalize();
-    //     }, 3700);
-    // }
-
-    function finalize() {
-        window.location.href = "./pages/result.html";
-    }
-})(window);
-
+        function finalize() {
+          window.location.href = "./pages/result.html";
+        }
+      })(window);
     </script>
   </body>
 </html>

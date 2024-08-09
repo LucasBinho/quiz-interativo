@@ -1,44 +1,19 @@
 @font-face {
-    font-family: "Mulish";
-    font-weight: normal;
-    src: url(/assets/fonts/Mulish-Regular.ttf);
-    font-display: swap;
+    font-family: "Neue-light";
+    src: url(/assets/fonts/neue/NeueMachina-Light.otf);
+  }
+
+
+  @font-face {
+    font-family: "Neue-regular";
+    src: url(/assets/fonts/neue/NeueMachina-Regular.otf);
+  }
+
+  @font-face {
+    font-family: "Neue-bold";
+    src: url(/assets/fonts/neue/NeueMachina-Ultrabold.otf);
   }
   
-  @font-face {
-    font-family: "Mulish";
-    font-weight: 500;
-    src: url(/assets/fonts/Mulish-Medium.ttf);
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Mulish";
-    font-weight: 600;
-    src: url(/assets/fonts/Mulish-SemiBold.ttf);
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Mulish";
-    font-weight: 700;
-    src: url(/assets/fonts/Mulish-Bold.ttf);
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Mulish";
-    font-weight: 800;
-    src: url(/assets/fonts/Mulish-ExtraBold.ttf);
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Mulish";
-    font-weight: 900;
-    src: url(/assets/fonts/Mulish-Black.ttf);
-    font-display: swap;
-  }
   
 
 html, body {
@@ -62,6 +37,69 @@ body{
     margin-bottom: 5px;
 }
 
+.calculating {
+    padding-top: 215px;
+}
+
+.calculating h1 {
+    font-family: 'Neue-regular';
+    background-color: #000000;
+    border-radius: inherit;
+    border: 3px solid white;
+    border-radius: 999px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 1rem 0;
+    width: 70%;
+    text-transform: uppercase;
+}
+
+.cards {
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cards img {
+    animation: fadeInOut 4s infinite;
+    max-width: 220px;
+}
+
+.cards img:nth-child(1) {
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+
+.cards img:nth-child(2) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+.cards img:nth-child(3) {
+    animation-duration: 6s;
+    animation-delay: 0s;
+}
+
+.cards img:nth-child(4) {
+    animation-duration: 7s;
+    animation-delay: 0s;
+}
+
+.cards img:nth-child(5) {
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.3; 
+    }
+    50% {
+        opacity: 1;
+    }
+}
 
 
 .sp-footer{
@@ -234,7 +272,7 @@ label[for=agree] > span:last-child {
 .mainStartDiv {
     background-image: url(./../img/brifw_bg.png);
     background-repeat: no-repeat;
-
+    background-size: contain;
     background-color: #222;
     color: #ffff;
 }

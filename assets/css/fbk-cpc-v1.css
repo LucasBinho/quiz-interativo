@@ -262,7 +262,9 @@ label {
 }
 #survey .question h3 {
   /* margin-bottom: 40px; */
-  margin-top: 40px;
+  margin-top: 15rem;
+  font-size: 43px;
+  text-wrap: balance;
 }
 #survey .finalize {
   max-width: 800px;
