@@ -12,8 +12,14 @@
     />
     <style>
       /* Adicione aqui os estilos específicos para impressão */
+      @font-face {
+        font-family: "Cako";
+        src: url(./../assets/fonts/Cako/Cako-Regular.ttf);
+      }
+
+
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Cako";
       }
       .container {
         width: 100%;
@@ -21,62 +27,141 @@
         margin: 0 auto;
         padding: 20px;
       }
+
+      .logoDiv {
+        margin: 30px 0 44px 0;
+        text-align: center;
+      }
+
       #character-image {
         max-width: 200px;
         display: block;
         margin: 0 auto 20px;
       }
-
-      #result,
       #character {
         text-transform: capitalize;
+        text-align: center;
+      }
+      #result {
+        margin-top: 35px;
+      }
+      #result:first-letter {
+        text-transform: uppercase;
       }
       /* Estilos adicionais para impressão */
     </style>
   </head>
   <body>
     <div class="container">
+      <div class="logoDiv"><img src="/assets/img/logo.png" alt="Logo"></div>
       <h1 id="character"></h1>
       <img id="character-image" alt="Character Image" />
       <p id="result"></p>
+      <div class="mt-5 text-center">
+        <p class="mt-4">Assine Nossa Newsletter:</p>
+        <img src="/assets/img/qrcode.png" alt="">
+      </div>
     </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const characterName = localStorage.getItem("characterName");
-        const messageContent = localStorage.getItem("messageContent");
-        const characterImageSrc = localStorage.getItem("characterImageSrc");
-        const sessionStartTime = parseInt(
-          localStorage.getItem("sessionStartTime")
-        );
-        const sessionEndTime = Date.now();
-        const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
 
-        document.getElementById("character").textContent = characterName;
-        document.getElementById("result").textContent = messageContent;
-        const characterImage = document.getElementById("character-image");
-        characterImage.src = characterImageSrc;
-        characterImage.style.display = "block";
+        const response = localStorage.getItem("openaiResponse");
+        console.log("OpenAI response:", response);
 
-        if (messageContent.trim() !== "") {
-          
-          const timestamp = new Date().toLocaleString();
-          let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
-          // printLogs.push(timestamp);
-          // localStorage.setItem("printLogs", JSON.stringify(printLogs));
-          const logEntry = {
-            timestamp: timestamp,
-            characterName: characterName,
-            sessionDuration: sessionDuration 
-          };
-          printLogs.push(logEntry);
-          localStorage.setItem("printLogs", JSON.stringify(printLogs));
+        if (!response) {
+          console.error("No response found in localStorage.");
+          return;
         }
 
-        // Aguarda um pouco antes de imprimir para garantir que a página esteja carregada
+ 
+        console.log("response em result html: ", response);
+        const responseData = JSON.parse(response);
+       
+        let characterName = responseData.personagem || responseData.Personagem;
+        let messageContent = responseData.mensagem || responseData.Mensagem;
+        console.log("Character Name:", characterName);
+
+    
+        characterName = characterName.toLowerCase();
+        messageContent = messageContent.toLowerCase();
+        
+        document.getElementById("character").textContent = characterName;
+        document.getElementById("result").textContent = messageContent;
+
+
+   
+        localStorage.setItem("characterName", characterName);
+        localStorage.setItem("messageContent", messageContent);
+
+        const characterImage = document.getElementById("character-image");
+        const characterImages = {
+          saci: "./../assets/img/saci.png",
+          iara: "./../assets/img/iara.png",
+          cuca: "./../assets/img/cuca.png",
+          boi: "./../assets/img/boi_tata.png",
+          mula: "./../assets/img/mula.png",
+        };
+
+
+        for (const key in characterImages) {
+          if (characterName.includes(key)) {
+            characterImage.src = characterImages[key];
+            characterImage.style.display = "block";
+            localStorage.setItem("characterImageSrc", characterImages[key]);
+            break;
+          }
+        }
+
         setTimeout(function () {
           window.print();
         }, 1000);
+
+        setTimeout(function () {
+          window.location.href = "./result.html";
+        }, 2000);
+
+
+
+
+
+
+
+
+
+        // const characterName = localStorage.getItem("characterName");
+        // const messageContent = localStorage.getItem("messageContent");
+        // const characterImageSrc = localStorage.getItem("characterImageSrc");
+        // const sessionStartTime = parseInt(
+        //   localStorage.getItem("sessionStartTime")
+        // );
+        // const sessionEndTime = Date.now();
+        // const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
+
+        // document.getElementById("character").textContent = characterName;
+        // document.getElementById("result").textContent = messageContent;
+        // const characterImage = document.getElementById("character-image");
+        // characterImage.src = characterImageSrc;
+        // characterImage.style.display = "block";
+
+        // if (messageContent.trim() !== "") {
+          
+        //   const timestamp = new Date().toLocaleString();
+        //   let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
+
+        //   const logEntry = {
+        //     timestamp: timestamp,
+        //     characterName: characterName,
+        //     sessionDuration: sessionDuration 
+        //   };
+        //   printLogs.push(logEntry);
+        //   localStorage.setItem("printLogs", JSON.stringify(printLogs));
+        // }
+
+     
+        // setTimeout(function () {
+        //   window.print();
+        // }, 1000);
       });
     </script>
   </body>

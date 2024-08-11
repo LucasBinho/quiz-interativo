@@ -73,59 +73,97 @@
     <script type="module" src="./../app.js"></script>
     <script type="module">
       document.addEventListener("DOMContentLoaded", function () {
-        // Obtém a resposta armazenada no localStorage
-        const response = localStorage.getItem("openaiResponse");
-        console.log("OpenAI response:", response);
 
-        if (!response) {
-          console.error("No response found in localStorage.");
-          return;
-        }
 
-        // Analisa a resposta JSON
-        console.log("response em result html: ", response);
-        const responseData = JSON.parse(response);
-        let characterName = responseData.personagem || responseData.Personagem;
-        let messageContent = responseData.mensagem || responseData.Mensagem;
+        
+        const characterName = localStorage.getItem("characterName");
+        const messageContent = localStorage.getItem("messageContent");
+        const characterImageSrc = localStorage.getItem("characterImageSrc");
+        const sessionStartTime = parseInt(
+          localStorage.getItem("sessionStartTime")
+        );
+        const sessionEndTime = Date.now();
+        const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
 
-        // Normaliza para minúsculas
-        characterName = characterName.toLowerCase();
-        messageContent = messageContent.toLowerCase();
-        console.log("Character Name:", characterName);
-
-        // Exibe os valores nos elementos apropriados
         document.getElementById("character").textContent = characterName;
         document.getElementById("result").textContent = messageContent;
-
-        // Salva os valores no localStorage
-        localStorage.setItem("characterName", characterName);
-        localStorage.setItem("messageContent", messageContent);
-
         const characterImage = document.getElementById("character-image");
-        const characterImages = {
-          saci: "./../assets/img/saci.png",
-          iara: "./../assets/img/iara.png",
-          cuca: "./../assets/img/cuca.png",
-          boi: "./../assets/img/boi_tata.png",
-          mula: "./../assets/img/mula.png",
-        };
+        characterImage.src = characterImageSrc;
+        characterImage.style.display = "block";
 
-        // Encontrar a imagem correspondente e salvá-la no localStorage
-        for (const key in characterImages) {
-          if (characterName.includes(key)) {
-            characterImage.src = characterImages[key];
-            characterImage.style.display = "block";
-            localStorage.setItem("characterImageSrc", characterImages[key]);
-            break;
-          }
+        if (messageContent.trim() !== "") {
+          
+          const timestamp = new Date().toLocaleString();
+          let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
+
+          const logEntry = {
+            timestamp: timestamp,
+            characterName: characterName,
+            sessionDuration: sessionDuration 
+          };
+          printLogs.push(logEntry);
+          localStorage.setItem("printLogs", JSON.stringify(printLogs));
         }
+
+        setTimeout(function() {
+                window.location.href = "./../index.html";
+        }, 10000);
+
+   
+        // const response = localStorage.getItem("openaiResponse");
+        // console.log("OpenAI response:", response);
+
+        // if (!response) {
+        //   console.error("No response found in localStorage.");
+        //   return;
+        // }
+
+ 
+        // console.log("response em result html: ", response);
+        // const responseData = JSON.parse(response);
+       
+        // let characterName = responseData.personagem || responseData.Personagem;
+        // let messageContent = responseData.mensagem || responseData.Mensagem;
+        // console.log("Character Name:", characterName);
+
+    
+        // characterName = characterName.toLowerCase();
+        // messageContent = messageContent.toLowerCase();
+
+
+        
+        // document.getElementById("character").textContent = characterName;
+        // document.getElementById("result").textContent = messageContent;
+
+   
+        // localStorage.setItem("characterName", characterName);
+        // localStorage.setItem("messageContent", messageContent);
+
+        // const characterImage = document.getElementById("character-image");
+        // const characterImages = {
+        //   saci: "./../assets/img/saci.png",
+        //   iara: "./../assets/img/iara.png",
+        //   cuca: "./../assets/img/cuca.png",
+        //   boi: "./../assets/img/boi_tata.png",
+        //   mula: "./../assets/img/mula.png",
+        // };
+
+
+        // for (const key in characterImages) {
+        //   if (characterName.includes(key)) {
+        //     characterImage.src = characterImages[key];
+        //     characterImage.style.display = "block";
+        //     localStorage.setItem("characterImageSrc", characterImages[key]);
+        //     break;
+        //   }
+        // }
 
         // Verifica se o elemento 'result' não está vazio e redireciona para a página de impressão
-        if (messageContent.trim() !== '') {
-            setTimeout(function() {
-                window.location.href = "print.html";
-            }, 5000);
-        }
+        // if (messageContent.trim() !== '') {
+        //     setTimeout(function() {
+        //         window.location.href = "print.html";
+        //     }, 5000);
+        // }
       });
     </script>
   </body>
