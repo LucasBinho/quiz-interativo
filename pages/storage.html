@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Print Log</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .log-entry {
-            margin: 10px 0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .log-entry {
+        margin: 10px 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Print Log</h1>
     <div id="logContainer"></div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const logContainer = document.getElementById('logContainer');
-            const printLogs = JSON.parse(localStorage.getItem('printLogs')) || [];
+      // document.addEventListener("DOMContentLoaded", function() {
+      //     const logContainer = document.getElementById('logContainer');
+      //     const printLogs = JSON.parse(localStorage.getItem('printLogs')) || [];
 
-            printLogs.forEach(log => {
-                const logEntry = document.createElement('p');
-                logEntry.classList.add('log-entry');
-                logEntry.textContent = `Print command executed at: ${log}`;
-                logContainer.appendChild(logEntry);
-            });
+      //     printLogs.forEach(log => {
+      //         const logEntry = document.createElement('p');
+      //         logEntry.classList.add('log-entry');
+      //         logEntry.textContent = `Print command executed at: ${log}`;
+      //         logContainer.appendChild(logEntry);
+      //     });
+      // });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const logContainer = document.getElementById("logContainer");
+        const printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
+
+        // printLogs.forEach((log) => {
+        //   const logEntry = document.createElement("div");
+        //   logEntry.classList.add("log-entry");
+
+        //   logEntry.innerHTML = `
+        //     <p>Print executado em: ${log.timestamp}</p>
+        //     <p>Personagem: ${log.characterName}</p>
+        //     <p>Duração da sessão: ${log.sessionDuration} seconds</p>
+        // `;
+        //   logContainer.appendChild(logEntry);
+        // });
+
+        printLogs.forEach(log => {
+        const logEntry = document.createElement('p');
+        logEntry.classList.add('log-entry');
+
+        logEntry.textContent = JSON.stringify({
+            Data: log.timestamp,
+            Resultado: log.characterName,
+            Duracao: log.sessionDuration,
         });
+
+        logContainer.appendChild(logEntry);
+    });
+      });
     </script>
-</body>
+  </body>
 </html>

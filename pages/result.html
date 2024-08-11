@@ -13,28 +13,55 @@
     />
 
     <style>
+      @font-face {
+        font-family: "Cako";
+        src: url(./../assets/fonts/Cako/Cako-Regular.ttf);
+      }
+
       body {
-        background-color: #222;
+        background-image: url(./../assets/img/result_bg.png);
         color: #ffff;
-        height: 100%;
+        height: 100vh;
+        font-family: "Cako";
+      }
+
+      #result {
+        max-width: 520px;
+        font-size: 20px;
+        margin-top: 15px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+      }
+
+      #character{
+        text-transform: capitalize;
+        font-size: 6rem;
+        width: 100%;
+        margin-bottom: 0;
       }
     </style>
   </head>
   <body>
     <div
-      class="container d-flex flex-column justify-content-center align-items-center"
+      class="container d-flex flex-column justify-content-center align-items-center h-100"
     >
-      <h1 class="mb-5 mt-3">O que diz a sua resposta</h1>
-      <div class="d-flex flex-column align-items-center my-4">
+      <!-- <h1 class="mb-5 mt-3">O que diz a sua resposta</h1> -->
+      <div class="d-flex flex-column align-items-center mb-4" style="margin-top: 5rem;">
         <h2 id="character"></h2>
-        <p id="result"></p>
-        <img
-          id="character-image"
-          class="mt-5"
-          src=""
-          alt="Character Image"
-          style="display: none; max-width: 350px"
-        />
+        <div class="d-flex align-items-start justify-content-center" style="gap: 15px;">
+          <div>
+            <p id="result"></p>
+          </div>
+          <div>
+            <img
+              id="character-image"
+              class=""
+              src=""
+              alt="Character Image"
+              style="display: none; max-width: 300px;"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -46,107 +73,59 @@
     <script type="module" src="./../app.js"></script>
     <script type="module">
       document.addEventListener("DOMContentLoaded", function () {
- 
-        // const response = localStorage.getItem("openaiResponse");
-        // console.log("OpenAI response:", response);
+        // Obtém a resposta armazenada no localStorage
+        const response = localStorage.getItem("openaiResponse");
+        console.log("OpenAI response:", response);
 
-        // if (!response) {
-        //   console.error("No response found in localStorage.");
-        //   return;
-        // }
+        if (!response) {
+          console.error("No response found in localStorage.");
+          return;
+        }
 
-        // console.log("response em result html: ", response);
-        // const responseData = JSON.parse(response);
-        // let characterName = responseData.personagem || responseData.Personagem;
-        // let messageContent = responseData.mensagem || responseData.Mensagem;
-        // // Normaliza para minúsculas
-        // characterName = characterName.toLowerCase();
-        // messageContent = messageContent.toLowerCase();
-        // console.log("Character Name:", characterName);
+        // Analisa a resposta JSON
+        console.log("response em result html: ", response);
+        const responseData = JSON.parse(response);
+        let characterName = responseData.personagem || responseData.Personagem;
+        let messageContent = responseData.mensagem || responseData.Mensagem;
 
-        // // Exibe os valores nos elementos apropriados
-        // document.getElementById("character").textContent = characterName;
-        // document.getElementById("result").textContent = messageContent;
+        // Normaliza para minúsculas
+        characterName = characterName.toLowerCase();
+        messageContent = messageContent.toLowerCase();
+        console.log("Character Name:", characterName);
 
-        // const characterImage = document.getElementById("character-image");
-        // const characterImages = {
-        //   saci: "./../assets/img/saci.png",
-        //   iara: "./../assets/img/iara.png",
-        //   cuca: "./../assets/img/cuca.png",
-        //   boi: "./../assets/img/boi_tata.png",
-        //   mula: "./../assets/img/mula.png",
-        // };
+        // Exibe os valores nos elementos apropriados
+        document.getElementById("character").textContent = characterName;
+        document.getElementById("result").textContent = messageContent;
 
-        // // Encontrar a imagem correspondente
-        // for (const key in characterImages) {
-        //   if (characterName.toLowerCase().includes(key)) {
-        //     console.log(characterName);
-        //     characterImage.src = characterImages[key];
-        //     characterImage.style.display = "block";
-        //     break;
-        //   }
-        // }
-   // Obtém a resposta armazenada no localStorage
-   const response = localStorage.getItem('openaiResponse');
-    console.log('OpenAI response:', response);
+        // Salva os valores no localStorage
+        localStorage.setItem("characterName", characterName);
+        localStorage.setItem("messageContent", messageContent);
 
-    if (!response) {
-        console.error('No response found in localStorage.');
-        return;
-    }
+        const characterImage = document.getElementById("character-image");
+        const characterImages = {
+          saci: "./../assets/img/saci.png",
+          iara: "./../assets/img/iara.png",
+          cuca: "./../assets/img/cuca.png",
+          boi: "./../assets/img/boi_tata.png",
+          mula: "./../assets/img/mula.png",
+        };
 
-    // Analisa a resposta JSON
-    console.log('response em result html: ', response);
-    const responseData = JSON.parse(response);
-    let characterName = responseData.personagem || responseData.Personagem;
-    let messageContent = responseData.mensagem || responseData.Mensagem;
-    
-    // Normaliza para minúsculas
-    characterName = characterName.toLowerCase();
-    messageContent = messageContent.toLowerCase();
-    console.log('Character Name:', characterName);
-
-    
-    // Exibe os valores nos elementos apropriados
-    document.getElementById("character").textContent = characterName;
-    document.getElementById("result").textContent = messageContent;
-
-    // Salva os valores no localStorage
-    localStorage.setItem('characterName', characterName);
-    localStorage.setItem('messageContent', messageContent);
-
-    const characterImage = document.getElementById("character-image");
-    const characterImages = {
-        "saci": "./../assets/img/saci.png",
-        "iara": "./../assets/img/iara.png",
-        "cuca": "./../assets/img/cuca.png",
-        "boi": "./../assets/img/boi_tata.png",
-        "mula": "./../assets/img/mula.png"
-    };
-
-    // Encontrar a imagem correspondente e salvá-la no localStorage
-    for (const key in characterImages) {
-        if (characterName.includes(key)) {
+        // Encontrar a imagem correspondente e salvá-la no localStorage
+        for (const key in characterImages) {
+          if (characterName.includes(key)) {
             characterImage.src = characterImages[key];
             characterImage.style.display = "block";
-            localStorage.setItem('characterImageSrc', characterImages[key]);
+            localStorage.setItem("characterImageSrc", characterImages[key]);
             break;
+          }
         }
-    }
 
-    // Verifica se o elemento 'result' não está vazio e redireciona para a página de impressão
-    if (messageContent.trim() !== '') {
-        setTimeout(function() {
-            window.location.href = "print.html";
-        }, 5000);
-    }
-    
-
-        // if (document.getElementById("result").textContent.trim() !== "") {
-        //   setTimeout(function () {
-        //     window.print();
-        //   }, 5000);
-        // }
+        // Verifica se o elemento 'result' não está vazio e redireciona para a página de impressão
+        if (messageContent.trim() !== '') {
+            setTimeout(function() {
+                window.location.href = "print.html";
+            }, 5000);
+        }
       });
     </script>
   </body>

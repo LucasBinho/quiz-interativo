@@ -11,7 +11,7 @@
   "type": "module",
   "scripts": {
     "test": "npm build",
-    "start": "nodemon app.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

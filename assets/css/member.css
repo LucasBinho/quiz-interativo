@@ -13,6 +13,12 @@
     font-family: "Neue-bold";
     src: url(/assets/fonts/neue/NeueMachina-Ultrabold.otf);
   }
+
+
+  @font-face {
+    font-family: "Cako";
+    src: url(/assets/fonts/Cako/Cako-Regular.ttf);
+  }
   
   
 

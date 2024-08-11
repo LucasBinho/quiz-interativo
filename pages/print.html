@@ -26,6 +26,11 @@
         display: block;
         margin: 0 auto 20px;
       }
+
+      #result,
+      #character {
+        text-transform: capitalize;
+      }
       /* Estilos adicionais para impressão */
     </style>
   </head>
@@ -41,6 +46,11 @@
         const characterName = localStorage.getItem("characterName");
         const messageContent = localStorage.getItem("messageContent");
         const characterImageSrc = localStorage.getItem("characterImageSrc");
+        const sessionStartTime = parseInt(
+          localStorage.getItem("sessionStartTime")
+        );
+        const sessionEndTime = Date.now();
+        const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
 
         document.getElementById("character").textContent = characterName;
         document.getElementById("result").textContent = messageContent;
@@ -49,12 +59,18 @@
         characterImage.style.display = "block";
 
         if (messageContent.trim() !== "") {
-         
-            // Salva a data e hora do comando de impressão no localStorage
-            const timestamp = new Date().toLocaleString();
-            let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
-            printLogs.push(timestamp);
-            localStorage.setItem("printLogs", JSON.stringify(printLogs));
+          
+          const timestamp = new Date().toLocaleString();
+          let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
+          // printLogs.push(timestamp);
+          // localStorage.setItem("printLogs", JSON.stringify(printLogs));
+          const logEntry = {
+            timestamp: timestamp,
+            characterName: characterName,
+            sessionDuration: sessionDuration 
+          };
+          printLogs.push(logEntry);
+          localStorage.setItem("printLogs", JSON.stringify(printLogs));
         }
 
         // Aguarda um pouco antes de imprimir para garantir que a página esteja carregada
