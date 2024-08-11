@@ -66,102 +66,43 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
 
-        const response = localStorage.getItem("openaiResponse");
-        console.log("OpenAI response:", response);
 
-        if (!response) {
-          console.error("No response found in localStorage.");
-          return;
-        }
 
- 
-        console.log("response em result html: ", response);
-        const responseData = JSON.parse(response);
-       
-        let characterName = responseData.personagem || responseData.Personagem;
-        let messageContent = responseData.mensagem || responseData.Mensagem;
-        console.log("Character Name:", characterName);
+        const characterName = localStorage.getItem("characterName");
+        const messageContent = localStorage.getItem("messageContent");
+        const characterImageSrc = localStorage.getItem("characterImageSrc");
+        const sessionStartTime = parseInt(
+          localStorage.getItem("sessionStartTime")
+        );
+        const sessionEndTime = Date.now();
+        const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
 
-    
-        characterName = characterName.toLowerCase();
-        messageContent = messageContent.toLowerCase();
-        
         document.getElementById("character").textContent = characterName;
         document.getElementById("result").textContent = messageContent;
-
-
-   
-        localStorage.setItem("characterName", characterName);
-        localStorage.setItem("messageContent", messageContent);
-
         const characterImage = document.getElementById("character-image");
-        const characterImages = {
-          saci: "./../assets/img/saci.png",
-          iara: "./../assets/img/iara.png",
-          cuca: "./../assets/img/cuca.png",
-          boi: "./../assets/img/boi_tata.png",
-          mula: "./../assets/img/mula.png",
-        };
+        characterImage.src = characterImageSrc;
+        characterImage.style.display = "block";
 
+        if (messageContent.trim() !== "") {
+          
+          const timestamp = new Date().toLocaleString();
+          let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
 
-        for (const key in characterImages) {
-          if (characterName.includes(key)) {
-            characterImage.src = characterImages[key];
-            characterImage.style.display = "block";
-            localStorage.setItem("characterImageSrc", characterImages[key]);
-            break;
-          }
+          const logEntry = {
+            timestamp: timestamp,
+            characterName: characterName,
+            sessionDuration: sessionDuration 
+          };
+          printLogs.push(logEntry);
+          localStorage.setItem("printLogs", JSON.stringify(printLogs));
         }
 
+     
         setTimeout(function () {
           window.print();
-        }, 300);
+          window.location.href = "./../index.html"
+        }, 1000);
 
-        setTimeout(function () {
-          window.location.href = "./result.html";
-        }, 500);
-
-
-
-
-
-
-
-
-
-        // const characterName = localStorage.getItem("characterName");
-        // const messageContent = localStorage.getItem("messageContent");
-        // const characterImageSrc = localStorage.getItem("characterImageSrc");
-        // const sessionStartTime = parseInt(
-        //   localStorage.getItem("sessionStartTime")
-        // );
-        // const sessionEndTime = Date.now();
-        // const sessionDuration = (sessionEndTime - sessionStartTime) / 1000;
-
-        // document.getElementById("character").textContent = characterName;
-        // document.getElementById("result").textContent = messageContent;
-        // const characterImage = document.getElementById("character-image");
-        // characterImage.src = characterImageSrc;
-        // characterImage.style.display = "block";
-
-        // if (messageContent.trim() !== "") {
-          
-        //   const timestamp = new Date().toLocaleString();
-        //   let printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
-
-        //   const logEntry = {
-        //     timestamp: timestamp,
-        //     characterName: characterName,
-        //     sessionDuration: sessionDuration 
-        //   };
-        //   printLogs.push(logEntry);
-        //   localStorage.setItem("printLogs", JSON.stringify(printLogs));
-        // }
-
-     
-        // setTimeout(function () {
-        //   window.print();
-        // }, 1000);
       });
     </script>
   </body>
