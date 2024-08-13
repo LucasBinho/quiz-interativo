@@ -18,33 +18,10 @@
     <div id="logContainer"></div>
 
     <script>
-      // document.addEventListener("DOMContentLoaded", function() {
-      //     const logContainer = document.getElementById('logContainer');
-      //     const printLogs = JSON.parse(localStorage.getItem('printLogs')) || [];
-
-      //     printLogs.forEach(log => {
-      //         const logEntry = document.createElement('p');
-      //         logEntry.classList.add('log-entry');
-      //         logEntry.textContent = `Print command executed at: ${log}`;
-      //         logContainer.appendChild(logEntry);
-      //     });
-      // });
-
       document.addEventListener("DOMContentLoaded", function () {
         const logContainer = document.getElementById("logContainer");
         const printLogs = JSON.parse(localStorage.getItem("printLogs")) || [];
 
-        // printLogs.forEach((log) => {
-        //   const logEntry = document.createElement("div");
-        //   logEntry.classList.add("log-entry");
-
-        //   logEntry.innerHTML = `
-        //     <p>Print executado em: ${log.timestamp}</p>
-        //     <p>Personagem: ${log.characterName}</p>
-        //     <p>Duração da sessão: ${log.sessionDuration} seconds</p>
-        // `;
-        //   logContainer.appendChild(logEntry);
-        // });
 
         printLogs.forEach(log => {
         const logEntry = document.createElement('p');

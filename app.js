@@ -5,7 +5,12 @@ export async function getText(values) {
         return 'No values provided';
     }
 
-    const prompt = `Aqui estão os valores selecionados: ${values.join(", ")}`;
+    const lastCharacterName = localStorage.getItem('lastCharacterName');
+    let prompt = `Aqui estão os valores selecionados: ${values.join(", ")}`;
+
+    if (lastCharacterName) {
+        prompt += `\nPor favor, evite repetir o personagem: ${lastCharacterName}`;
+    }
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
@@ -30,11 +35,12 @@ export async function getText(values) {
 
     const data = await response.json();
     const messageContent = data.choices[0].message.content;
-    return messageContent;
-    // return messageContent =  (data.choices[0].message.content);
 
-    // Armazena a mensagem no local storage
-    // sessionStorage.setItem('openaiResponse', messageContent);
+    localStorage.setItem('lastCharacterName', characterName);
+
+    return messageContent;
+
+    
 }
 
 window.getText = getText;
